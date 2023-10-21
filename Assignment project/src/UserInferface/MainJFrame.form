@@ -107,6 +107,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminLoginActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnProfessorLogin">
               <Properties>
@@ -117,6 +120,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProfessorLoginActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnDepartmentLogin">
               <Properties>
@@ -127,6 +133,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDepartmentLoginActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

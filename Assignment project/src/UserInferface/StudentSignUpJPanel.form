@@ -32,7 +32,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtFirstName" min="-2" pref="173" max="-2" attributes="0"/>
                               <EmptySpace pref="149" max="32767" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnUploadPhoto" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnUploadPhoto" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -206,7 +206,7 @@
         <Property name="text" type="java.lang.String" value="NEU ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnUploadPhoto">
       <Properties>
         <Property name="text" type="java.lang.String" value="Upload Photo"/>
       </Properties>
@@ -245,6 +245,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Show Password"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckBoxActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jPasswordField">
     </Component>

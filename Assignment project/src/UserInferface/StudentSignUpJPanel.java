@@ -42,7 +42,7 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnUploadPhoto = new javax.swing.JButton();
         txtNEUID = new javax.swing.JTextField();
         txtConfirmPassword = new javax.swing.JTextField();
         txtUserID = new javax.swing.JTextField();
@@ -82,7 +82,7 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("NEU ID");
 
-        jButton1.setText("Upload Photo");
+        btnUploadPhoto.setText("Upload Photo");
 
         btnSave.setText("Save Details");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +99,11 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
         });
 
         CheckBox.setText("Show Password");
+        CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -119,7 +124,7 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
+                                .addComponent(btnUploadPhoto)))
                         .addGap(62, 62, 62))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -174,7 +179,7 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
                             .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)))
+                        .addComponent(btnUploadPhoto)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -224,13 +229,18 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
         layout.previous(WorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_CheckBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox CheckBox;
     private javax.swing.JTextField TxtContactDetails;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnUploadPhoto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

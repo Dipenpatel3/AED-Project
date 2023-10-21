@@ -52,12 +52,27 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnAdminLogin.setText("Admin Login");
         btnAdminLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdminLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminLoginActionPerformed(evt);
+            }
+        });
 
         btnProfessorLogin.setText("Professor Login");
         btnProfessorLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnProfessorLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfessorLoginActionPerformed(evt);
+            }
+        });
 
         btnDepartmentLogin.setText("Department Login");
         btnDepartmentLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDepartmentLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepartmentLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ControlPanelLayout = new javax.swing.GroupLayout(ControlPanel);
         ControlPanel.setLayout(ControlPanelLayout);
@@ -118,6 +133,26 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
     }//GEN-LAST:event_btnStudentLoginActionPerformed
+
+    private void btnAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginActionPerformed
+        // TODO add your handling code here:
+        AdminJPanel adminjpanel=new AdminJPanel(WorkArea);
+        WorkArea.add("AdminJPanel",adminjpanel);
+        CardLayout layout=(CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnAdminLoginActionPerformed
+
+    private void btnProfessorLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfessorLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProfessorLoginActionPerformed
+
+    private void btnDepartmentLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepartmentLoginActionPerformed
+        // TODO add your handling code here:
+        DepartmentJPanel departmentjpanel=new DepartmentJPanel(WorkArea);
+        WorkArea.add("DepartmentJPanel",departmentjpanel);
+        CardLayout layout=(CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnDepartmentLoginActionPerformed
 
     /**
      * @param args the command line arguments
