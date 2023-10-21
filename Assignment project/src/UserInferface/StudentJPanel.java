@@ -53,6 +53,12 @@ public class StudentJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Password");
 
+        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldActionPerformed(evt);
+            }
+        });
+
         jCheckBox.setText("Show Password");
         jCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +166,10 @@ public class StudentJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
