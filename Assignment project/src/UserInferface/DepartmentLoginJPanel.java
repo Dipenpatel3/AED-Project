@@ -34,13 +34,13 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnLogout = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -52,7 +52,7 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogout)
+                .addComponent(jButton1)
                 .addGap(26, 26, 26))
             .addGroup(layout.createSequentialGroup()
                 .addGap(162, 162, 162)
@@ -65,28 +65,25 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
                 .addGap(57, 57, 57)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addComponent(btnLogout)
+                .addComponent(jButton1)
                 .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int dialogButton=JOptionPane.YES_NO_OPTION;
-        int dialogResult=JOptionPane.showConfirmDialog(null,"Would you Like to Logout","Warring",dialogButton);
-        if(dialogResult==JOptionPane.YES_NO_OPTION){
+        int dialogResult=JOptionPane.showConfirmDialog(null,"Would you Like to Log Out","Warring",dialogButton);
+        if(dialogButton==JOptionPane.YES_NO_OPTION){
             WorkArea.remove(this);
             CardLayout layout=(CardLayout) WorkArea.getLayout();
             layout.previous(WorkArea);
         }
-        else{
-            
-        }
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

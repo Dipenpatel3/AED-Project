@@ -5,7 +5,6 @@
 package UserInferface;
 
 import java.awt.CardLayout;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -37,7 +36,7 @@ public class DepartmentJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -49,9 +48,9 @@ public class DepartmentJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Username:");
 
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
 
@@ -64,11 +63,6 @@ public class DepartmentJPanel extends javax.swing.JPanel {
         });
 
         jCheckBox1.setText("Show Password");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -102,13 +96,14 @@ public class DepartmentJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnLogin)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtUsername)
-                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField1)
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBox1)))))
+                                .addComponent(jCheckBox1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(275, 275, 275)
+                        .addComponent(btnLogin)))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,15 +114,15 @@ public class DepartmentJPanel extends javax.swing.JPanel {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox1))
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addComponent(btnLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(28, 28, 28))
         );
@@ -141,46 +136,17 @@ public class DepartmentJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        if(txtUsername.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Enter the UserName");
-        }
-        else if(jPasswordField1.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Enter the Password");
-        }
-        else{
-        if(txtUsername.getText().equals("department")){
-            if(jPasswordField1.getText().equals("1234")){
-                    DepartmentLoginJPanel departmentloginjpanel=new DepartmentLoginJPanel(WorkArea);
-                    WorkArea.add("DepartmentLoginJPanel",departmentloginjpanel);
-                    CardLayout layout=(CardLayout) WorkArea.getLayout();
-                    layout.next(WorkArea);
-                    JOptionPane.showMessageDialog(null,"Sucessfully Login!!!");
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Enter Password Doesn't Match");
-            }
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Enter UserName/Password Doesn't Exist!!!");
-        }
-        }
+        DepartmentLoginJPanel departmentloginjpanel=new DepartmentLoginJPanel(WorkArea);
+        WorkArea.add("DepartmentLoginJPanel",departmentloginjpanel);
+        CardLayout layout=(CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-        if(jCheckBox1.isSelected()){
-            jPasswordField1.setEchoChar((char)0);
-        }
-        else{
-            jPasswordField1.setEchoChar('*');
-        }
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -191,6 +157,6 @@ public class DepartmentJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
