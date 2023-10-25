@@ -4,6 +4,8 @@
  */
 package UserInferface;
 
+import MainModel.StudentClass;
+import MainModel.StudentDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,9 +22,14 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
 //        initComponents();
 //    }
     private JPanel WorkArea;
-    AdminLoginJPanel(JPanel WorkArea) {
+    private StudentDirectory StudentDirectory;
+    private StudentClass StudentClass;
+    
+    AdminLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory) {
      initComponents();
      this.WorkArea=WorkArea;
+     this.StudentDirectory=StudentDirectory;
+     
     }
 
     /**
@@ -36,6 +43,9 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
 
         btnLogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnStudentDetails = new javax.swing.JButton();
+        btnProfessorDetails = new javax.swing.JButton();
+        btnDepartmentDetails = new javax.swing.JButton();
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -44,27 +54,52 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Admin Login");
+
+        btnStudentDetails.setText("Student Details");
+        btnStudentDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStudentDetailsActionPerformed(evt);
+            }
+        });
+
+        btnProfessorDetails.setText("Professor Details");
+
+        btnDepartmentDetails.setText("Department Details");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(542, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(41, 41, 41))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addComponent(jLabel1)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGap(123, 123, 123)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDepartmentDetails)
+                    .addComponent(btnProfessorDetails)
+                    .addComponent(btnStudentDetails))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDepartmentDetails, btnProfessorDetails, btnStudentDetails});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
+                .addComponent(btnStudentDetails)
+                .addGap(27, 27, 27)
+                .addComponent(btnProfessorDetails)
+                .addGap(27, 27, 27)
+                .addComponent(btnDepartmentDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(26, 26, 26))
         );
@@ -81,9 +116,20 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnStudentDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentDetailsActionPerformed
+        // TODO add your handling code here:
+        StudentDetailsAdminJPanel studentdetailadminjpanel=new StudentDetailsAdminJPanel(WorkArea,StudentDirectory);
+        WorkArea.add("StudentDetailsAdminJPanel",studentdetailadminjpanel);
+        CardLayout layout=(CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnStudentDetailsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDepartmentDetails;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnProfessorDetails;
+    private javax.swing.JButton btnStudentDetails;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

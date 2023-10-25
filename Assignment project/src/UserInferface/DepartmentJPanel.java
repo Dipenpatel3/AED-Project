@@ -44,6 +44,8 @@ public class DepartmentJPanel extends javax.swing.JPanel {
         btnLogin = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(186, 79, 84));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Department Login");
 
@@ -135,6 +137,9 @@ public class DepartmentJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        WorkArea.removeAll();
+        CardLayout layout=(CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
@@ -161,6 +166,8 @@ public class DepartmentJPanel extends javax.swing.JPanel {
                     CardLayout layout=(CardLayout) WorkArea.getLayout();
                     layout.next(WorkArea);
                     JOptionPane.showMessageDialog(null,"Sucessfully Login!!!");
+                    txtUsername.setText(null);
+                    jPasswordField1.setText(null);
             }
             else{
                 JOptionPane.showMessageDialog(null,"Enter Password Doesn't Match");

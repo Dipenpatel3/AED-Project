@@ -4,7 +4,10 @@
  */
 package UserInferface;
 
+import MainModel.StudentClass;
+import MainModel.StudentDirectory;
 import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -15,8 +18,13 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    private StudentDirectory StudentDirectory;
+    private StudentClass StudentClass;
+    
     public MainJFrame() {
         initComponents();
+        this.StudentClass=new StudentClass();
+        this.StudentDirectory=new StudentDirectory();
     }
 
     /**
@@ -39,6 +47,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        ControlPanel.setBackground(new java.awt.Color(74, 31, 61));
+
         btnStudentLogin.setText("Student Login ");
         btnStudentLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnStudentLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +57,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(242, 242, 242));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome ");
 
@@ -109,6 +120,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         SplitPane.setLeftComponent(ControlPanel);
 
+        WorkArea.setBackground(new java.awt.Color(186, 79, 84));
         WorkArea.setLayout(new java.awt.CardLayout());
         SplitPane.setRightComponent(WorkArea);
 
@@ -128,7 +140,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnStudentLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentLoginActionPerformed
         // TODO add your handling code here:
-        StudentJPanel studentjpanel=new StudentJPanel(WorkArea);
+        StudentJPanel studentjpanel=new StudentJPanel(WorkArea,StudentDirectory);
         WorkArea.add("StudentJPanel",studentjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
@@ -136,7 +148,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginActionPerformed
         // TODO add your handling code here:
-        AdminJPanel adminjpanel=new AdminJPanel(WorkArea);
+        AdminJPanel adminjpanel=new AdminJPanel(WorkArea,StudentDirectory);
         WorkArea.add("AdminJPanel",adminjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);

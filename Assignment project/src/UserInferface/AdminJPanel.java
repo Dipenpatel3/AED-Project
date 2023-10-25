@@ -4,6 +4,8 @@
  */
 package UserInferface;
 
+import MainModel.StudentClass;
+import MainModel.StudentDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,13 +20,15 @@ public class AdminJPanel extends javax.swing.JPanel {
      * Creates new form AdminJPanel
      */
     private JPanel WorkArea;
-    
+    private StudentDirectory StudentDirectory;
+    private StudentClass StudentClass;
 //    
 //    public AdminJPanel() {
 //        initComponents();
 //    }
-    AdminJPanel(JPanel WorkArea) {
+    AdminJPanel(JPanel WorkArea,StudentDirectory StudentDirectory) {
         initComponents();
+        this.StudentDirectory=StudentDirectory;
         this.WorkArea=WorkArea;
     }
 
@@ -45,6 +49,8 @@ public class AdminJPanel extends javax.swing.JPanel {
         jPasswordField1 = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
         btnBack = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(186, 79, 84));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome Admin");
@@ -149,11 +155,13 @@ public class AdminJPanel extends javax.swing.JPanel {
             {
                 if(jPasswordField1.getText().equals("1234"))
                 {
-                    AdminLoginJPanel adminloginjpanel=new AdminLoginJPanel(WorkArea);
+                    AdminLoginJPanel adminloginjpanel=new AdminLoginJPanel(WorkArea,StudentDirectory);
                     WorkArea.add("AdminLoginJPanel",adminloginjpanel);
                     CardLayout layout=(CardLayout) WorkArea.getLayout();
                     layout.next(WorkArea);
                     JOptionPane.showMessageDialog(null,"Succesfully Login!!!");
+                    txtUserName.setText(null);
+                    jPasswordField1.setText(null);
                 }
                 else
                 {
@@ -165,10 +173,6 @@ public class AdminJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "UserName/Password doesn't Exsit!!");
             }
         }
-//        AdminLoginJPanel adminloginjpanel=new AdminLoginJPanel(WorkArea);
-//        WorkArea.add("AdminLoginJPanel",adminloginjpanel);
-//        CardLayout layout=(CardLayout) WorkArea.getLayout();
-//        layout.next(WorkArea);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

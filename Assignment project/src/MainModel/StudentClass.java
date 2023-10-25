@@ -72,5 +72,8 @@ public class StudentClass {
     public void setEmailId(String EmailId) {
         this.EmailId = EmailId;
     }
-    
+    @Override
+    public String toString(){
+       return FirstName; 
+    }
 }
