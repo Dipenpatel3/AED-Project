@@ -78,8 +78,18 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         });
 
         btnAddCourse.setText("Add Course");
+        btnAddCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCourseActionPerformed(evt);
+            }
+        });
 
         btnViewCourse.setText("View Course");
+        btnViewCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCourseActionPerformed(evt);
+            }
+        });
 
         btnTranscripts.setText("Transcripts ");
         btnTranscripts.addActionListener(new java.awt.event.ActionListener() {
@@ -165,6 +175,18 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
     }//GEN-LAST:event_btnTranscriptsActionPerformed
+
+    private void btnAddCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCourseActionPerformed
+        // TODO add your handling code here:
+        AddCourseJPanel addcoursejpanel=new AddCourseJPanel(WorkArea);
+        WorkArea.add("AddCourseJPanel",addcoursejpanel);
+        CardLayout layout=(CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnAddCourseActionPerformed
+
+    private void btnViewCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewCourseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

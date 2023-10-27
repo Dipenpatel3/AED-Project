@@ -3,10 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/StudentJPanel.java</file>
-            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/MainJFrame.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/MainModel/CourseHistory.java</file>
             <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/StudentLoginJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/StudentDetailsAdminJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/MainModel/Course.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/StudentTranscriptviewJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/AddCourseJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/UpdateStudentdetailsJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/DepartmentLoginJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/adminStudentViewDetailsJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/ViewStudentDetailsJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/AdminJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/MainModel/StudentClass.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/MainModel/StudentDirectory.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/AdminLoginJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/StudentJPanel.java</file>
             <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/StudentSignUpJPanel.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/MainJFrame.java</file>
+            <file>file:/Users/dipenpatel/Downloads/Assignment%20project/src/UserInferface/DepartmentJPanel.java</file>
         </group>
     </open-files>
 </project-private>

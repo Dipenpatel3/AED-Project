@@ -4,6 +4,10 @@
  */
 package UserInferface;
 
+import MainModel.Course;
+import MainModel.CourseHistory;
+import MainModel.Professor;
+import MainModel.ProfessorHistory;
 import MainModel.StudentClass;
 import MainModel.StudentDirectory;
 import java.awt.CardLayout;
@@ -20,11 +24,19 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private StudentDirectory StudentDirectory;
     private StudentClass StudentClass;
+    private Professor Professor;
+    private ProfessorHistory ProfessorHistory;
+    private Course Course;
+    private CourseHistory CourseHistory;
     
     public MainJFrame() {
         initComponents();
         this.StudentClass=new StudentClass();
         this.StudentDirectory=new StudentDirectory();
+        this.Professor=new Professor();
+        this.ProfessorHistory=new ProfessorHistory();
+        this.Course=new Course();
+        this.CourseHistory=new CourseHistory();
     }
 
     /**
@@ -115,7 +127,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnProfessorLogin)
                 .addGap(18, 18, 18)
                 .addComponent(btnDepartmentLogin)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         SplitPane.setLeftComponent(ControlPanel);
@@ -128,11 +140,11 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane)
+            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
         );
 
         pack();
@@ -148,7 +160,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginActionPerformed
         // TODO add your handling code here:
-        AdminJPanel adminjpanel=new AdminJPanel(WorkArea,StudentDirectory);
+        AdminJPanel adminjpanel=new AdminJPanel(WorkArea,StudentDirectory,ProfessorHistory);
         WorkArea.add("AdminJPanel",adminjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
@@ -156,6 +168,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnProfessorLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfessorLoginActionPerformed
         // TODO add your handling code here:
+        ProfessorJPanel professorjpanel=new ProfessorJPanel(WorkArea,ProfessorHistory,CourseHistory);
+        WorkArea.add("ProfessorJPanel",professorjpanel);
+        CardLayout layout=(CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
     }//GEN-LAST:event_btnProfessorLoginActionPerformed
 
     private void btnDepartmentLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepartmentLoginActionPerformed

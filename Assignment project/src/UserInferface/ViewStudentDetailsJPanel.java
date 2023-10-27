@@ -23,6 +23,7 @@ public class ViewStudentDetailsJPanel extends javax.swing.JPanel {
 //    }
     private JPanel WorkArea;
     private StudentClass StudentClass; 
+    
 //    ViewStudentDetailsJPanel(JPanel WorkArea, StudentClass studentclass) {
 //        initComponents();   
 //        this.WorkArea=WorkArea;

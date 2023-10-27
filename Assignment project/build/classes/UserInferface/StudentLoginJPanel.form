@@ -101,11 +101,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Course"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddCourseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnViewCourse">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Course"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewCourseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTranscripts">
       <Properties>

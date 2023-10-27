@@ -30,11 +30,7 @@ public class StudentDirectory {
         StudentDirectory.add(student);
         return student;
     }
-//    public StudentClass addStudentDetails(String First,String L,String NEUId, String CD){
-//        StudentClass student=new StudentClass();        
-//        StudentDirectory.add(student);
-//        return student;
-//    }
+    
     public void deleteStudent(StudentClass studentclass){
         StudentDirectory.remove(studentclass);
     }
@@ -56,4 +52,8 @@ public class StudentDirectory {
         }
         return null;
     }
+//    public Course searchCourse(){
+//        
+//    }
+    
 }

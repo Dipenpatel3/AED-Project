@@ -4,6 +4,7 @@
  */
 package UserInferface;
 
+import MainModel.ProfessorHistory;
 import MainModel.StudentClass;
 import MainModel.StudentDirectory;
 import java.awt.CardLayout;
@@ -24,12 +25,13 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
     private JPanel WorkArea;
     private StudentDirectory StudentDirectory;
     private StudentClass StudentClass;
+    private ProfessorHistory ProfessorHistory;
     
-    AdminLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory) {
+    AdminLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory,ProfessorHistory ProfessorHistory) {
      initComponents();
      this.WorkArea=WorkArea;
      this.StudentDirectory=StudentDirectory;
-     
+     this.ProfessorHistory=ProfessorHistory;     
     }
 
     /**
@@ -46,6 +48,8 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         btnStudentDetails = new javax.swing.JButton();
         btnProfessorDetails = new javax.swing.JButton();
         btnDepartmentDetails = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(186, 79, 84));
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +69,11 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         });
 
         btnProfessorDetails.setText("Professor Details");
+        btnProfessorDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfessorDetailsActionPerformed(evt);
+            }
+        });
 
         btnDepartmentDetails.setText("Department Details");
 
@@ -123,6 +132,14 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)WorkArea.getLayout();
         layout.next(WorkArea);
     }//GEN-LAST:event_btnStudentDetailsActionPerformed
+
+    private void btnProfessorDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfessorDetailsActionPerformed
+        // TODO add your handling code here:
+        ProfessorAdminJPanel professoradminjpanel=new ProfessorAdminJPanel(WorkArea,ProfessorHistory);
+        WorkArea.add("ProfessorAdminJPanel",professoradminjpanel);
+        CardLayout layout=(CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnProfessorDetailsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

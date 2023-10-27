@@ -4,6 +4,7 @@
  */
 package UserInferface;
 
+import MainModel.ProfessorHistory;
 import MainModel.StudentClass;
 import MainModel.StudentDirectory;
 import java.awt.CardLayout;
@@ -21,15 +22,17 @@ public class AdminJPanel extends javax.swing.JPanel {
      */
     private JPanel WorkArea;
     private StudentDirectory StudentDirectory;
-    private StudentClass StudentClass;
+    //private StudentClass StudentClass;
+    private ProfessorHistory ProfessorHistory;
 //    
 //    public AdminJPanel() {
 //        initComponents();
 //    }
-    AdminJPanel(JPanel WorkArea,StudentDirectory StudentDirectory) {
+    AdminJPanel(JPanel WorkArea,StudentDirectory StudentDirectory,ProfessorHistory ProfessorHistory) {
         initComponents();
         this.StudentDirectory=StudentDirectory;
         this.WorkArea=WorkArea;
+        this.ProfessorHistory=ProfessorHistory;
     }
 
     /**
@@ -155,7 +158,7 @@ public class AdminJPanel extends javax.swing.JPanel {
             {
                 if(jPasswordField1.getText().equals("1234"))
                 {
-                    AdminLoginJPanel adminloginjpanel=new AdminLoginJPanel(WorkArea,StudentDirectory);
+                    AdminLoginJPanel adminloginjpanel=new AdminLoginJPanel(WorkArea,StudentDirectory,ProfessorHistory);
                     WorkArea.add("AdminLoginJPanel",adminloginjpanel);
                     CardLayout layout=(CardLayout) WorkArea.getLayout();
                     layout.next(WorkArea);

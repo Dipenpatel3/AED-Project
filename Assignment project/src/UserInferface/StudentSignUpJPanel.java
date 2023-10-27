@@ -63,6 +63,8 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         txtNEUID = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(186, 79, 84));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("New User Panel");
 

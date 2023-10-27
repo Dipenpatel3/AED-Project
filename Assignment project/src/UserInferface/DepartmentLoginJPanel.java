@@ -40,6 +40,8 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
         jDepartmentDetails = new javax.swing.JTable();
         btnGenerateTranscipt = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(186, 79, 84));
+
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

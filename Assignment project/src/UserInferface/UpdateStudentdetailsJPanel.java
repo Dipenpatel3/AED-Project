@@ -74,6 +74,8 @@ public class UpdateStudentdetailsJPanel extends javax.swing.JPanel {
         txtConfrimPassword = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
 
+        setBackground(new java.awt.Color(186, 79, 84));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Update Student Details");
 

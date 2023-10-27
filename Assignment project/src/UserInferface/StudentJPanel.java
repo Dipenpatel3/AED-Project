@@ -181,6 +181,8 @@ public class StudentJPanel extends javax.swing.JPanel {
         StudentClass foundStudent=StudentDirectory.searcStudentNameandpassword(txtUserID.getText(), jPasswordField.getText());
         if(foundStudent==null){
             JOptionPane.showMessageDialog(null,"Password Doesn't match","Information",JOptionPane.INFORMATION_MESSAGE);
+            txtUserID.setText(null);
+            jPasswordField.setText(null);
         }
         else{
         StudentLoginJPanel studentloginjpanel=new StudentLoginJPanel(WorkArea,StudentDirectory,foundStudent);
