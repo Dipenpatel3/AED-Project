@@ -4,6 +4,7 @@
  */
 package UserInferface;
 
+import MainModel.Course;
 import MainModel.CourseHistory;
 import MainModel.Professor;
 import MainModel.ProfessorHistory;
@@ -33,6 +34,7 @@ public class ProfessorJPanel extends javax.swing.JPanel {
         this.WorkArea=WorkArea;
         this.ProfessorHistory=ProfessorHistory;
         this.CourseHistory=CourseHistory;
+        
     }
 
     /**

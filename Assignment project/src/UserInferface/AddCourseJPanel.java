@@ -4,12 +4,19 @@
  */
 package UserInferface;
 
+import MainModel.Course;
+import MainModel.CourseHistory;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel; 
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author dhrruv
  */
+
 public class AddCourseJPanel extends javax.swing.JPanel {
 
     /**
@@ -19,10 +26,22 @@ public class AddCourseJPanel extends javax.swing.JPanel {
 //        initComponents();
 //    }
     private JPanel WorkArea;
-    AddCourseJPanel(JPanel WorkArea) {
+    private CourseHistory courseHistory;
+    
+    
+    AddCourseJPanel(JPanel WorkArea, CourseHistory courseHistory) {
        initComponents();
        this.WorkArea=WorkArea;
+       this.courseHistory=courseHistory;
+       
+//       tableModel = (DefaultTableModel) jTable1.getModel();
+       //populateTable();
+
     }
+
+//    AddCourseJPanel(JPanel WorkArea) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,48 +55,168 @@ public class AddCourseJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnBack = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
+        btnViewCourse = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add course ");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Course Name", "Term ", "Professor Name", "Schedule"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        btnBack.setText("<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setText("Search ");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        btnViewCourse.setText("View Course");
+        btnViewCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCourseActionPerformed(evt);
+            }
+        });
+
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(174, 174, 174)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnReset)
+                    .addComponent(btnViewCourse)
+                    .addComponent(btnBack)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSearch)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearch)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnViewCourse)
+                .addGap(18, 18, 18)
+                .addComponent(btnReset)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(45, 45, 45))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String term = txtSearch.getText();
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(dtm);
+        jTable1.setRowSorter(sorter);
+        RowFilter<DefaultTableModel, Object> rowFilter = RowFilter.regexFilter(term, 1); 
+        sorter.setRowFilter(rowFilter);
+       
+        for(Course course: courseHistory.getCourseHistory()){
+            String fullname=course.getProfessor();
+//            System.out.println("This is my name");
+//            System.out.println(fullname);
+            Course result=courseHistory.searchCourse(term,fullname);
+            System.out.println("The term is:");
+            System.out.println(course.getTerm());
+            //System.out.println(result.getTerm());
+            if(result==null){
+                JOptionPane.showMessageDialog(null, "Term doesn't exist!!");
+                dtm.setRowCount(0);
+            }
+            else{
+                populateTable();   
+            }
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnViewCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewCourseActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnViewCourse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        for (Course course : courseHistory.getCourseHistory()) {
+            Object[] row = new Object[4];
+            row[0] = course.getCourseName();
+            row[1] =course.getTerm();
+            row[2] =course.getProfessor();                    
+            row[3] = course.getTime();
+            dtm.addRow(row);
+        }
+    }
 }

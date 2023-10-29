@@ -33,7 +33,7 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
         this.WorkArea=WorkArea;
         this.CourseHistory=CourseHistory;
         this.Professor=Professor;
-        txtFullName.setText(Professor.getFirstName()+" "+Professor.getLastName());
+        txtFullName.setText(Professor.getFirstName());
     }
 
     /**
@@ -80,6 +80,12 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Schedule");
+
+        txtCourseName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCourseNameActionPerformed(evt);
+            }
+        });
 
         txtTerm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +187,7 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
         String term=txtTerm.getText();
         String Schedule=txtSchedule.getText();
         String FullName=txtFullName.getText();
+        
         Course course=new Course();
         
         course.setCourseCode(CourseCode);
@@ -189,9 +196,9 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
         course.setTime(Schedule);
         course.setCourseName(CourseName);
         course.setProfessor(FullName);
+        
         CourseHistory.createCourse(course);
        
-        
         JOptionPane.showMessageDialog(null, "Course is created!!!");
         
         txtCourseCode.setText(null);
@@ -212,6 +219,10 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
     private void txtTermActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTermActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTermActionPerformed
+
+    private void txtCourseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCourseNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCourseNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

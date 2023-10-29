@@ -4,11 +4,15 @@
  */
 package MainModel;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author dipenpatel
  */
-public class Professor {
+public class Professor{
     private String FirstName;
     private String LastName;
     private String userName;
@@ -18,7 +22,12 @@ public class Professor {
     private String linkedIn;
     private String email;
     private String ContactDetails;
+    static Map<String,String> hashmap=new HashMap<>();
 
+    public static Map<String, String> getHashmap() {
+        return hashmap;
+    }
+    
     public String getContactDetails() {
         return ContactDetails;
     }
@@ -92,4 +101,5 @@ public class Professor {
     public void setEmail(String email) {
         this.email = email;
     }
+    
 }

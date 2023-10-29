@@ -44,6 +44,11 @@ public class StudentDirectory {
         return null;
     }
     
+    public StudentClass addCourse(StudentClass student){
+        StudentDirectory.add(student);
+        return student;
+    }
+    
     public StudentClass searcStudentNameandpassword(String UserName,String Password){
         for(StudentClass studentclass:StudentDirectory){
             if(studentclass.getUserID().equals(UserName) && studentclass.getPassword().equals(Password)){

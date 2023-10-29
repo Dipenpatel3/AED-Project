@@ -5,16 +5,19 @@
 package MainModel;
 
 import java.util.ArrayList;
-
+import MainModel.ProfessorHistory;
 /**
  *
  * @author dipenpatel
  */
+
 public class CourseHistory {
     private ArrayList<Course> CourseHistory;
+    private ProfessorHistory p;
     
     public CourseHistory(){
         this.CourseHistory = new ArrayList<Course>();
+        
     } 
 
     public ArrayList<Course> getCourseHistory() {
@@ -25,18 +28,20 @@ public class CourseHistory {
         this.CourseHistory = CourseHistory;
     }
     
-    public Course createCourse(Course course){
+    public Course createCourse(Course Course){
         //Course c = new Course();
-        CourseHistory.add(course);
-        return course;
+        CourseHistory.add(Course);
+        p.addcourseProfessor(Course);
+        return Course;
     }
    
-    public Course searchCourse(String courseID,String courseName){
+    public Course searchCourse(String term,String fullname){
         for(Course course:CourseHistory){
-            if(course.getCourseCode().equals(courseID) && course.getCourseName().equals(courseName)){
+            if(course.getTerm().equals(term) && course.getProfessor().equals(fullname)){
                 return course;
             }
         }
         return null;
     }
+   
 }

@@ -29,6 +29,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private Course Course;
     private CourseHistory CourseHistory;
     
+    
     public MainJFrame() {
         initComponents();
         this.StudentClass=new StudentClass();
@@ -152,7 +153,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnStudentLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentLoginActionPerformed
         // TODO add your handling code here:
-        StudentJPanel studentjpanel=new StudentJPanel(WorkArea,StudentDirectory);
+        StudentJPanel studentjpanel=new StudentJPanel(WorkArea,StudentDirectory,CourseHistory);
         WorkArea.add("StudentJPanel",studentjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);

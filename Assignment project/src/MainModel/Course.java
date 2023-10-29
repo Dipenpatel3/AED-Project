@@ -8,14 +8,14 @@ package MainModel;
  *
  * @author dipenpatel
  */
-public class Course {
+public class Course{
     private String courseName;
     private String courseCode;
     private String courseDescription;
     private String professor;
     private String term;
     private String time;
-
+    
     public String getCourseName() {
         return courseName;
     }
@@ -31,8 +31,6 @@ public class Course {
     public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
-
-   
 
     public String getCourseDescription() {
         return courseDescription;

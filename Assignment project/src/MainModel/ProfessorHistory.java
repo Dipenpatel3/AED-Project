@@ -5,6 +5,8 @@
 package MainModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -12,6 +14,12 @@ import java.util.ArrayList;
  */
 public class ProfessorHistory {
     private ArrayList<Professor> ProfessorHistory;
+    
+    //static Map<String,String> hashmap=new HashMap<>();
+//
+//    public static Map<String, String> getHashmap() {
+//        return hashmap;
+//    }
     
     public ProfessorHistory(){
         this.ProfessorHistory = new ArrayList<Professor>();
@@ -39,5 +47,9 @@ public class ProfessorHistory {
         }
         return null;
     }
-    
+    public void addcourseProfessor(Course course,String Name){
+        if(Professor.getHashmap().containsKey(Name)) {
+            ProfessorHistory.add(course);
+        }
+        } 
 }

@@ -7,6 +7,7 @@ package UserInferface;
 import MainModel.Course;
 import MainModel.CourseHistory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -31,7 +32,9 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
        initComponents();
        this.WorkArea=WorkArea;
        this.CourseHistory=CourseHistory;
-       populateTable();
+       
+//       populateTable();
+
     }
 
     /**
@@ -61,11 +64,11 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Course Name", "Course Code", "Term ", "Schedule"
+                "Course Name", "Course Code", "Term ", "Schedule", "ProfessorName"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -140,12 +143,29 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+       
         String term = txtSearch.getText();
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(dtm);
         jTable1.setRowSorter(sorter);
         RowFilter<DefaultTableModel, Object> rowFilter = RowFilter.regexFilter(term, 2); 
-        sorter.setRowFilter(rowFilter); 
+        sorter.setRowFilter(rowFilter);
+ 
+        for(Course course: CourseHistory.getCourseHistory()){
+            String fullname=course.getProfessor();
+            System.out.println("This is my name");
+            System.out.println(fullname);
+            
+            Course result=CourseHistory.searchCourse(term,fullname);
+            //System.out.println(result.getTerm());
+            if(result==null){
+            JOptionPane.showMessageDialog(null, "Term doesn't exist!!");
+            }
+            else{
+            populateTable();   
+            }
+        }        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -159,6 +179,7 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         txtSearch.setText(""); // Clear the search input
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(dtm);
         jTable1.setRowSorter(sorter);
     }//GEN-LAST:event_btnResetActionPerformed
@@ -178,11 +199,12 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setNumRows(0);
         for(Course course: CourseHistory.getCourseHistory()){
-            Object[] row = new Object[4];
+            Object[] row = new Object[5];
             row[0] = course.getCourseName();
             row[1] = course.getCourseCode();
             row[2] = course.getTerm();
             row[3] = course.getTime();
+            row[4]= course.getProfessor();
             dtm.addRow(row);
             
         }
