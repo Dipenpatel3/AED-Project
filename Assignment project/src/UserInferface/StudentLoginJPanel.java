@@ -4,7 +4,9 @@
  */
 package UserInferface;
 
+import MainModel.Course;
 import MainModel.CourseHistory;
+import MainModel.StudentAddCourseHistory;
 import MainModel.StudentClass;
 import MainModel.StudentDirectory;
 import java.awt.CardLayout;
@@ -27,13 +29,16 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
     private StudentDirectory StudentDirectory;
     private StudentClass Studentclass;
     private CourseHistory courseHistory;
+    private StudentAddCourseHistory StudentAddCourseHistory;
     
-    StudentLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory,StudentClass Studentclass, CourseHistory courseHistory) {
+    StudentLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory,StudentClass Studentclass, CourseHistory courseHistory,StudentAddCourseHistory StudentAddCourseHistory) {
      initComponents();
      this.WorkArea=WorkArea;
      this.StudentDirectory=StudentDirectory;
      this.Studentclass=Studentclass;
      this.courseHistory=courseHistory;
+     this.StudentAddCourseHistory = StudentAddCourseHistory;
+    
     }
 
     /**
@@ -148,10 +153,13 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int dialogButton=JOptionPane.YES_NO_OPTION;
         int dialogResult=JOptionPane.showConfirmDialog(null,"Would you Like to Log Out","Warring",dialogButton);
-        if(dialogButton==JOptionPane.YES_NO_OPTION){
+        if(dialogButton==JOptionPane.YES_OPTION){
             WorkArea.remove(this);
             CardLayout layout=(CardLayout) WorkArea.getLayout();
             layout.previous(WorkArea);
+        }
+        else if(dialogButton==JOptionPane.NO_OPTION){
+            
         }
     }//GEN-LAST:event_btnLogOutActionPerformed
 
@@ -174,6 +182,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
     private void btnTranscriptsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranscriptsActionPerformed
         // TODO add your handling code here:
         if(Studentclass.getCheckTran123s()==1){
+            Studentclass.setCheckTrans("Yes");
             JOptionPane.showMessageDialog(null, "Congrats! Transcript is genreated and read for download");
             StudentTranscriptviewJPanel studenttrancsriptviewjpanel=new StudentTranscriptviewJPanel(WorkArea);
         WorkArea.add("StudentTranscriptviewJPanel",studenttrancsriptviewjpanel);
@@ -187,7 +196,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
     private void btnAddCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCourseActionPerformed
         // TODO add your handling code here:
-        AddCourseJPanel addcoursejpanel=new AddCourseJPanel(WorkArea, courseHistory,Studentclass);
+        AddCourseJPanel addcoursejpanel=new AddCourseJPanel(WorkArea, courseHistory,Studentclass, StudentAddCourseHistory);
         WorkArea.add("AddCourseJPanel",addcoursejpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
@@ -195,7 +204,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
     private void btnViewCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseActionPerformed
         // TODO add your handling code here:
-       ViewAddedCourseStudentJPanel viewaddedcoursestudentJPanel= new ViewAddedCourseStudentJPanel(WorkArea,Studentclass,StudentDirectory);
+       ViewAddedCourseStudentJPanel viewaddedcoursestudentJPanel= new ViewAddedCourseStudentJPanel(WorkArea,Studentclass,StudentDirectory,StudentAddCourseHistory);
        WorkArea.add("ViewCourseJPanel",viewaddedcoursestudentJPanel);
        CardLayout layout=(CardLayout) WorkArea.getLayout();
        layout.next(WorkArea); 

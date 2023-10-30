@@ -5,6 +5,8 @@
 package MainModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -21,7 +23,25 @@ public class StudentClass {
     private int generateTrans;
     private String CheckTrans;
     private int checkTran123s;
+    private String Term;
+    static Map<String,String> hashMap=new HashMap<>();
 
+    public static Map<String, String> getHashMap() {
+        return hashMap;
+    }
+
+    public static void setHashMap(Map<String, String> hashMap) {
+        StudentClass.hashMap = hashMap;
+    }
+    
+    public String getTerm() {
+        return Term;
+    }
+
+    public void setTerm(String Term) {
+        this.Term = Term;
+    }
+    
     public int getCheckTran123s() {
         return checkTran123s;
     }
@@ -121,4 +141,5 @@ public class StudentClass {
     public String toString(){
        return FirstName; 
     }
+
 }

@@ -190,6 +190,9 @@
     <Component class="javax.swing.JTextField" name="txtConfirmPassword">
     </Component>
     <Component class="javax.swing.JTextField" name="txtUserID">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUserIDActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEmailID">
     </Component>

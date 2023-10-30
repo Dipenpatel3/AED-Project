@@ -24,11 +24,12 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
 //    }
     private JPanel WorkArea;
     private StudentDirectory StudentDirectory;
-    
-    DepartmentLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory) {
+    private StudentClass StudentClass;
+    DepartmentLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory,StudentClass StudentClass) {
      initComponents();
      this.WorkArea=WorkArea;
      this.StudentDirectory=StudentDirectory;
+     this.StudentClass=StudentClass;
      populateTable();
     }
 
@@ -144,7 +145,12 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
         }
         else{
             //StudentClass StudentClass=(StudentClass) jTable1.getValueAt(selectrow, 0);
+            String checkTrans="yes";
+            StudentClass.setCheckTrans(checkTrans);
             JOptionPane.showMessageDialog(null,"Transcript is generated");
+            populateUpdateTable();
+            System.out.println("Please check this");
+            System.out.println(StudentClass.getCheckTrans());
             //populateUpdateTable();
         }
     }//GEN-LAST:event_btnGenerateTransciptActionPerformed
@@ -164,16 +170,17 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
           dtm.setRowCount(0);
           for(StudentClass StudentClass:StudentDirectory.getStudentList())
           {
-              if(StudentClass.getGenerateTrans()==1){
-                  String generateTrans="No";
+              if(StudentClass.getGenerateTrans()==1 && StudentClass.getCheckTrans().equals("No")){
+                  //String generateTrans="No";
                   int CheckTrans=1;
                   StudentClass.setCheckTran123s(CheckTrans);
-                  StudentClass.setCheckTrans(generateTrans);
+                  //StudentClass.setCheckTrans(generateTrans);
+                  System.out.println(StudentClass.getCheckTrans());
                   Object[] row=new Object[5];
                   row[0]=StudentClass.getFirstName();
                   row[1]=StudentClass.getLastName();
                   row[2]=StudentClass.getNEUID();
-                  row[3]=generateTrans;
+                  row[3]=StudentClass.getCheckTrans();
                   dtm.addRow(row);
               }
               else{
@@ -184,26 +191,28 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
       
 }
 
-//    private void populateUpdateTable() {
-//       DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
-//          dtm.setRowCount(0);
-//          for(StudentClass StudentClass:StudentDirectory.getStudentList())
-//          {
-//              if(StudentClass.getGenerateTrans()==1){
-//                  String generateTrans="Yes";
-//                  int CheckTrans=1;
-//                  StudentClass.setCheckTran123s(CheckTrans);
-//                  StudentClass.setCheckTrans(generateTrans);
-//                  Object[] row=new Object[5];
-//              row[0]=StudentClass.getFirstName();
-//              row[1]=StudentClass.getLastName();
-//              row[2]=StudentClass.getNEUID();
-//              row[3]=generateTrans;
-//              dtm.addRow(row);
-//              }
-//              else{
-//                  dtm.setRowCount(0);
-//              }
+    private void populateUpdateTable() {
+       DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
+          dtm.setRowCount(0);
+          for(StudentClass StudentClass:StudentDirectory.getStudentList())
+          {
+              if(StudentClass.getGenerateTrans()==1 && StudentClass.getCheckTrans().equals("Yes")){
+                  String generateTrans="Yes";
+                  int CheckTrans=1;
+                  StudentClass.setCheckTran123s(CheckTrans);
+                  StudentClass.setCheckTrans(generateTrans);
+                  Object[] row=new Object[5];
+              row[0]=StudentClass.getFirstName();
+              row[1]=StudentClass.getLastName();
+              row[2]=StudentClass.getNEUID();
+              row[3]=generateTrans;
+              dtm.addRow(row);
+              }
+              else{
+                  dtm.setRowCount(0);
+              }
               
     }
+    }
+}
 

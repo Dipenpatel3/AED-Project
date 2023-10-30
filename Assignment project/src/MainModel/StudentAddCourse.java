@@ -6,14 +6,12 @@ package MainModel;
 
 /**
  *
- * @author dipenpatel
+ * @author shrikrishnanayak
  */
-public class Course{
+public class StudentAddCourse {
     private String courseName;
-    private String courseCode;
-    private String courseDescription;
-    private String professor;
     private String term;
+    private String professor;
     private String time;
     
     
@@ -25,20 +23,12 @@ public class Course{
         this.courseName = courseName;
     }
 
-    public String getCourseCode() {
-        return courseCode;
+    public String getTerm() {
+        return term;
     }
 
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
-    }
-
-    public String getCourseDescription() {
-        return courseDescription;
-    }
-
-    public void setCourseDescription(String courseDescription) {
-        this.courseDescription = courseDescription;
+    public void setTerm(String term) {
+        this.term = term;
     }
 
     public String getProfessor() {
@@ -47,14 +37,6 @@ public class Course{
 
     public void setProfessor(String professor) {
         this.professor = professor;
-    }
-
-    public String getTerm() {
-        return term;
-    }
-
-    public void setTerm(String term) {
-        this.term = term;
     }
 
     public String getTime() {

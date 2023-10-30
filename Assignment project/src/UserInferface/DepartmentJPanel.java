@@ -24,11 +24,12 @@ public class DepartmentJPanel extends javax.swing.JPanel {
 //        initComponents();
 //    }
     private StudentDirectory StudentDirectory;
-    
-    DepartmentJPanel(JPanel WorkArea,StudentDirectory StudentDirectory) {
+    private StudentClass StudentClass;
+    DepartmentJPanel(JPanel WorkArea,StudentDirectory StudentDirectory,StudentClass StudentClass) {
         initComponents();
         this.WorkArea=WorkArea;
         this.StudentDirectory=StudentDirectory;
+        this.StudentClass=StudentClass;
     }
 
     /**
@@ -166,7 +167,7 @@ public class DepartmentJPanel extends javax.swing.JPanel {
         else{
         if(txtUsername.getText().equals("department")){
             if(jPasswordField1.getText().equals("1234")){
-                    DepartmentLoginJPanel departmentloginjpanel=new DepartmentLoginJPanel(WorkArea,StudentDirectory);
+                    DepartmentLoginJPanel departmentloginjpanel=new DepartmentLoginJPanel(WorkArea,StudentDirectory,StudentClass);
                     WorkArea.add("DepartmentLoginJPanel",departmentloginjpanel);
                     CardLayout layout=(CardLayout) WorkArea.getLayout();
                     layout.next(WorkArea);

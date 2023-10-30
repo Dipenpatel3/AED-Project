@@ -4,11 +4,15 @@
  */
 package UserInferface;
 
+import MainModel.Course;
+import MainModel.StudentAddCourse;
+import MainModel.StudentAddCourseHistory;
 import MainModel.StudentClass;
 import MainModel.StudentDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,11 +26,16 @@ public class ViewAddedCourseStudentJPanel extends javax.swing.JPanel {
     private JPanel WorkArea;
     private StudentClass StudentClass;
     private StudentDirectory StudentDirectory;
-    public ViewAddedCourseStudentJPanel(JPanel WorkArea,StudentClass StudentClass,StudentDirectory StudentDirectory) {
+    private StudentAddCourseHistory StudentAddCourseHistory;
+    
+    public ViewAddedCourseStudentJPanel(JPanel WorkArea,StudentClass StudentClass,StudentDirectory StudentDirectory,StudentAddCourseHistory StudentAddCourseHistory) {
         this.WorkArea=WorkArea;
         this.StudentClass=StudentClass;
         this.StudentDirectory=StudentDirectory;
+        this.StudentAddCourseHistory=StudentAddCourseHistory;
         initComponents();
+        populateTable();
+       
     }
 
     /**
@@ -48,10 +57,7 @@ public class ViewAddedCourseStudentJPanel extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Course Name", "Course Code", "Term", "Professor Name", "Course Schedule"
@@ -133,6 +139,8 @@ public class ViewAddedCourseStudentJPanel extends javax.swing.JPanel {
     private void btnGenrateTranscriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenrateTranscriptActionPerformed
         // TODO add your handling code here:
         int Trans=1;
+        String checkTrans="No";
+        StudentClass.setCheckTrans(checkTrans);
         StudentClass.setGenerateTrans(Trans);
 //        StudentDirectory.generateTrans(StudentClass.getUserID(), Trans);
         JOptionPane.showMessageDialog(null,"Transcript has been send for verification");
@@ -146,4 +154,17 @@ public class ViewAddedCourseStudentJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-}
+
+    private void populateTable() {
+        DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        for(StudentAddCourse StudentAddCourse:StudentAddCourseHistory.getStudentAddCourseHistory()){
+                Object[] row=new Object[5];
+                row[0]=StudentAddCourse.getCourseName();
+                row[2]=StudentAddCourse.getTerm();
+                row[3]=StudentAddCourse.getProfessor();
+                row[4]=StudentAddCourse.getTime();
+                dtm.addRow(row);
+            }
+        }
+  }

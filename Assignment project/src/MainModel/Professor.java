@@ -5,6 +5,8 @@
 package MainModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -20,11 +22,6 @@ public class Professor{
     private String linkedIn;
     private String email;
     private String ContactDetails;
-    private ArrayList<Course> addedCourse;
-    
-    public Professor(){
-        this.addedCourse=new ArrayList<>();
-    }
     public String getContactDetails() {
         return ContactDetails;
     }

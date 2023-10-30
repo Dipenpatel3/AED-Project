@@ -28,12 +28,13 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
     private JPanel WorkArea;
     private CourseHistory CourseHistory;
     private Professor Professor;
-    private ProfessorHistory ProfessorHistory;
+   
     CreateCourseProfessorJPanel(JPanel WorkArea, CourseHistory CourseHistory,Professor Professor) {
         initComponents();
         this.WorkArea=WorkArea;
         this.CourseHistory=CourseHistory;
         this.Professor=Professor;
+       
         txtFullName.setText(Professor.getFirstName());
     }
 
@@ -111,6 +112,11 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
         jLabel7.setText("Full Name");
 
         txtFullName.setEditable(false);
+        txtFullName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFullNameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -200,8 +206,9 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
         
         CourseHistory.createCourse(course);
         Professor.setFirstName(FullName);
-        
+        System.out.println(course.getProfessor());
         JOptionPane.showMessageDialog(null, "Course is created!!!");
+       
         
         txtCourseCode.setText(null);
         txtCourseDetails.setText(null);
@@ -225,6 +232,10 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
     private void txtCourseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCourseNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCourseNameActionPerformed
+
+    private void txtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFullNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFullNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

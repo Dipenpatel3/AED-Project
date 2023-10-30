@@ -4,6 +4,7 @@
  */
 package UserInferface;
 
+import MainModel.Course;
 import MainModel.Professor;
 import MainModel.ProfessorHistory;
 import java.awt.CardLayout;
@@ -24,7 +25,7 @@ public class ProfessorSignUpJPanel extends javax.swing.JPanel {
 //    }
     private JPanel WorkArea;
     private ProfessorHistory ProfessorHistory;
-    
+  
     ProfessorSignUpJPanel(JPanel WorkArea, ProfessorHistory ProfessorHistory) {
         initComponents();
         this.WorkArea=WorkArea;
@@ -248,8 +249,9 @@ public class ProfessorSignUpJPanel extends javax.swing.JPanel {
         professor.setPassword(EnterPassword);
         professor.setUserName(UserID);
         professor.setContactDetails(contactDetails);
-        
+       
         ProfessorHistory.addPofessor(professor);
+        
         
         JOptionPane.showMessageDialog(null, "Account has been Created!!!");
     }//GEN-LAST:event_btnCreateaccountActionPerformed

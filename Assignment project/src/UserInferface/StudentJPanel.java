@@ -4,7 +4,9 @@
  */
 package UserInferface;
 
+import MainModel.Course;
 import MainModel.CourseHistory;
+import MainModel.StudentAddCourseHistory;
 import MainModel.StudentClass;
 import MainModel.StudentDirectory;
 import java.awt.CardLayout;
@@ -23,16 +25,18 @@ public class StudentJPanel extends javax.swing.JPanel {
     private JPanel WorkArea;
     private StudentDirectory StudentDirectory;
     private CourseHistory courseHistory;
-    
+    private StudentAddCourseHistory StudentAddCourseHistory;
+    private StudentClass StudentClass;
 //    public StudentJPanel() {
 //        initComponents();
 //    }
 
-    StudentJPanel(JPanel WorkArea,StudentDirectory StudentDirectory, CourseHistory courseHistory) {
+    StudentJPanel(JPanel WorkArea,StudentDirectory StudentDirectory, CourseHistory courseHistory, StudentAddCourseHistory StudentAddCourseHistory) {
         initComponents();
         this.WorkArea=WorkArea;
         this.StudentDirectory=StudentDirectory;
         this.courseHistory=courseHistory;
+        this.StudentAddCourseHistory = StudentAddCourseHistory;
     }
 
     /**
@@ -188,7 +192,7 @@ public class StudentJPanel extends javax.swing.JPanel {
             jPasswordField.setText(null);
         }
         else{
-        StudentLoginJPanel studentloginjpanel=new StudentLoginJPanel(WorkArea,StudentDirectory,foundStudent, courseHistory);
+        StudentLoginJPanel studentloginjpanel=new StudentLoginJPanel(WorkArea,StudentDirectory,foundStudent, courseHistory, StudentAddCourseHistory);
         WorkArea.add("StudentLoginJPanel",studentloginjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);

@@ -12,9 +12,11 @@ import java.util.ArrayList;
  */
 public class StudentDirectory {
     private ArrayList<StudentClass> StudentDirectory;
-
+    
+    
     public StudentDirectory(){
         this.StudentDirectory=new ArrayList<StudentClass>();
+        
     }
     
     public ArrayList<StudentClass> getStudentList() {

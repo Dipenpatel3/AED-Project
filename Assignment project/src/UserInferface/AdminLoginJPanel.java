@@ -125,6 +125,11 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
             CardLayout layout=(CardLayout) WorkArea.getLayout();
             layout.previous(WorkArea);
         }
+        else{
+             AdminLoginJPanel adminloginjpanel=new AdminLoginJPanel(WorkArea,StudentDirectory,ProfessorHistory,Professor);
+             WorkArea.add("AdminLoginJPanel",adminloginjpanel);
+             CardLayout layout=(CardLayout) WorkArea.getLayout();
+        }
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnStudentDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentDetailsActionPerformed

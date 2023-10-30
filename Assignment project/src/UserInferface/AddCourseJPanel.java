@@ -6,6 +6,8 @@ package UserInferface;
 
 import MainModel.Course;
 import MainModel.CourseHistory;
+import MainModel.StudentAddCourse;
+import MainModel.StudentAddCourseHistory;
 import MainModel.StudentClass;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -30,14 +32,14 @@ public class AddCourseJPanel extends javax.swing.JPanel {
     private JPanel WorkArea;
     private CourseHistory courseHistory;
     private StudentClass StudentClass;
+    private StudentAddCourseHistory StudentAddCourseHistory;
     
-    AddCourseJPanel(JPanel WorkArea, CourseHistory courseHistory,StudentClass StudentClass) {
+    AddCourseJPanel(JPanel WorkArea, CourseHistory courseHistory,StudentClass StudentClass, StudentAddCourseHistory StudentAddCourseHistory) {
        initComponents();
        this.WorkArea=WorkArea;
        this.courseHistory=courseHistory;
        this.StudentClass=StudentClass;
-       
-//       tableModel = (DefaultTableModel) jTable1.getModel();
+       this.StudentAddCourseHistory = StudentAddCourseHistory;
        //populateTable();
 
     }
@@ -209,21 +211,32 @@ public class AddCourseJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnViewCourseActionPerformed
 
     private void btnaddCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddCourseActionPerformed
-        // TODO add your handling code here:
-        int SelectRow=jTable1.getSelectedRow();
-        if(SelectRow<0){
-            JOptionPane.showMessageDialog(null,"Please select the Row from the table");
-        }
-        else{
-            for(int col=0;col<jTable1.getColumnCount();col++){
-                Object cellvalue=jTable1.getValueAt(SelectRow, col);
-                //StudentClass studentClass=new StudentClass();
-                StudentClass.addcourse((String) cellvalue);
-            }
-//            String courseName=(String)jTable1.getValueAt(SelectRow,0);
-//            System.out.println(courseName);
-            
-        }
+        int selectedRow = jTable1.getSelectedRow();
+    if (selectedRow < 0) {
+        JOptionPane.showMessageDialog(null, "Please select the Row from the table");
+    } else {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        // Get the course information from the selected row
+        String courseName = (String) model.getValueAt(selectedRow, 0);
+        String term = (String) model.getValueAt(selectedRow, 1);
+        String professor = (String) model.getValueAt(selectedRow, 2);
+        String time = (String) model.getValueAt(selectedRow, 3);
+
+        // Create a new StudentAddCourse object with the course information
+        StudentAddCourse newCourse = new StudentAddCourse();
+        
+        newCourse.setCourseName(courseName);
+        newCourse.setTerm(term);
+        newCourse.setProfessor(professor);
+        newCourse.setTime(time);
+        
+        // Add the selected course to the StudentAddCourseHistory array list
+        StudentAddCourseHistory.addCourse(newCourse);
+        // Optionally, you can display a message or update the UI to indicate
+        // that the course has been added to the array.
+        JOptionPane.showMessageDialog(this, "Course registered successfully");
+    }
     }//GEN-LAST:event_btnaddCourseActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -261,8 +274,8 @@ public class AddCourseJPanel extends javax.swing.JPanel {
         for (Course course : courseHistory.getCourseHistory()) {
             Object[] row = new Object[4];
             row[0] = course.getCourseName();
-            row[1] =course.getTerm();
-            row[2] =course.getProfessor();                    
+            row[1] = course.getTerm();
+            row[2] = course.getProfessor();                    
             row[3] = course.getTime();
             dtm.addRow(row);
         }

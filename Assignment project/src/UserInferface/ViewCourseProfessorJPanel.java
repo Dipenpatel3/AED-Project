@@ -29,7 +29,8 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
     private JPanel WorkArea;
     private CourseHistory CourseHistory;
     private ProfessorHistory ProfessorHistory; 
-    private Professor Professor;      
+    private Professor Professor;   
+     
     ViewCourseProfessorJPanel(JPanel WorkArea, CourseHistory CourseHistory,ProfessorHistory ProfessorHistory,Professor Professor) {
        initComponents();
        this.WorkArea=WorkArea;
@@ -56,6 +57,7 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(186, 79, 84));
 
@@ -116,13 +118,16 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReset)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSearch)
-                        .addGap(22, 22, 22)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTableCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnSearch)
+                            .addGap(22, 22, 22)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTableCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -135,7 +140,8 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
+                    .addComponent(btnSearch)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnReset)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
@@ -164,6 +170,7 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
             Course result=CourseHistory.searchCourse(term,fullname);
             String checkUsername=Professor.getFirstName();
             System.out.println(checkUsername);
+            
             //Professor professorname=ProfessorHistory.viewProfessorCourse(fullname, course);
             //System.out.println(result.getTerm());
             if(result==null){
@@ -204,6 +211,7 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane jTableCourse;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 
@@ -221,4 +229,4 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
             
         }
     }
-    }
+}

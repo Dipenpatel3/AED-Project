@@ -8,6 +8,7 @@ import MainModel.Course;
 import MainModel.CourseHistory;
 import MainModel.Professor;
 import MainModel.ProfessorHistory;
+import MainModel.StudentAddCourseHistory;
 import MainModel.StudentClass;
 import MainModel.StudentDirectory;
 import java.awt.CardLayout;
@@ -28,7 +29,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private ProfessorHistory ProfessorHistory;
     private Course Course;
     private CourseHistory CourseHistory;
-    
+    private StudentAddCourseHistory StudentAddCourseHistory;
     
     public MainJFrame() {
         initComponents();
@@ -38,6 +39,7 @@ public class MainJFrame extends javax.swing.JFrame {
         this.ProfessorHistory=new ProfessorHistory();
         this.Course=new Course();
         this.CourseHistory=new CourseHistory();
+        this.StudentAddCourseHistory = new StudentAddCourseHistory();
     }
 
     /**
@@ -153,7 +155,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnStudentLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentLoginActionPerformed
         // TODO add your handling code here:
-        StudentJPanel studentjpanel=new StudentJPanel(WorkArea,StudentDirectory,CourseHistory);
+        StudentJPanel studentjpanel=new StudentJPanel(WorkArea,StudentDirectory,CourseHistory, StudentAddCourseHistory);
         WorkArea.add("StudentJPanel",studentjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
@@ -177,7 +179,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnDepartmentLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepartmentLoginActionPerformed
         // TODO add your handling code here:
-        DepartmentJPanel departmentjpanel=new DepartmentJPanel(WorkArea,StudentDirectory);
+        DepartmentJPanel departmentjpanel=new DepartmentJPanel(WorkArea,StudentDirectory,StudentClass);
         WorkArea.add("DepartmentJPanel",departmentjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);

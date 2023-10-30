@@ -82,6 +82,12 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
 
         btnUploadPhoto.setText("Upload Photo");
 
+        txtUserID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserIDActionPerformed(evt);
+            }
+        });
+
         btnSave.setText("Create Account");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +257,7 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
         student.setNEUID(NEUID);
         
         StudentDirectory.addStudent(student);
-        
+        student.getHashMap().put(FirstName, UserID);
         JOptionPane.showMessageDialog(null, "Student Account is created");
         
         txtEmailID.setText(null);
@@ -284,6 +290,10 @@ public class StudentSignUpJPanel extends javax.swing.JPanel {
     private void txtContactDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactDetailsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContactDetailsActionPerformed
+
+    private void txtUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserIDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
