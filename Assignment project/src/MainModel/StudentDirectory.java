@@ -44,10 +44,10 @@ public class StudentDirectory {
         return null;
     }
     
-    public StudentClass addCourse(StudentClass student){
-        StudentDirectory.add(student);
-        return student;
-    }
+//    public Course addCourse(Course Course,String UserName){
+//        StudentDirectory.add(Course);
+//        return Course;
+//    }
     
     public StudentClass searcStudentNameandpassword(String UserName,String Password){
         for(StudentClass studentclass:StudentDirectory){

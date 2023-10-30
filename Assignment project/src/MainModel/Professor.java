@@ -5,8 +5,6 @@
 package MainModel;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -22,12 +20,11 @@ public class Professor{
     private String linkedIn;
     private String email;
     private String ContactDetails;
-    static Map<String,String> hashmap=new HashMap<>();
-
-    public static Map<String, String> getHashmap() {
-        return hashmap;
-    }
+    private ArrayList<Course> addedCourse;
     
+    public Professor(){
+        this.addedCourse=new ArrayList<>();
+    }
     public String getContactDetails() {
         return ContactDetails;
     }
@@ -101,5 +98,4 @@ public class Professor{
     public void setEmail(String email) {
         this.email = email;
     }
-    
 }

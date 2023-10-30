@@ -181,7 +181,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
     private void btnAddCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCourseActionPerformed
         // TODO add your handling code here:
-        AddCourseJPanel addcoursejpanel=new AddCourseJPanel(WorkArea, courseHistory);
+        AddCourseJPanel addcoursejpanel=new AddCourseJPanel(WorkArea, courseHistory,Studentclass);
         WorkArea.add("AddCourseJPanel",addcoursejpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
@@ -189,6 +189,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
     private void btnViewCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnViewCourseActionPerformed
 
 

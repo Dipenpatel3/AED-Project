@@ -4,6 +4,8 @@
  */
 package MainModel;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dipenpatel
@@ -16,7 +18,21 @@ public class StudentClass {
     private String Password;
     private String NEUID;
     private String EmailId;
+    
+    private ArrayList<String> addcourses;
+    
+    public ArrayList<String> getAddcourses() {
+        return addcourses;
+    }
 
+    public void addcourse(String Course){
+        addcourses.add(Course);
+    }
+    
+    public StudentClass(){
+        this.addcourses=new ArrayList<String>();
+    }
+    
     public String getFirstName() {
         return FirstName;
     }

@@ -13,11 +13,9 @@ import MainModel.ProfessorHistory;
 
 public class CourseHistory {
     private ArrayList<Course> CourseHistory;
-    private ProfessorHistory p;
     
     public CourseHistory(){
         this.CourseHistory = new ArrayList<Course>();
-        
     } 
 
     public ArrayList<Course> getCourseHistory() {
@@ -31,7 +29,6 @@ public class CourseHistory {
     public Course createCourse(Course Course){
         //Course c = new Course();
         CourseHistory.add(Course);
-        p.addcourseProfessor(Course);
         return Course;
     }
    
@@ -43,5 +40,5 @@ public class CourseHistory {
         }
         return null;
     }
-   
+ 
 }

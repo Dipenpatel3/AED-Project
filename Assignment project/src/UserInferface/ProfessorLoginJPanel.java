@@ -90,6 +90,11 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
         });
 
         btnAddExperince.setText("Add Experience ");
+        btnAddExperince.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddExperinceActionPerformed(evt);
+            }
+        });
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +148,7 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
 
     private void btnViewCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseActionPerformed
         // TODO add your handling code here:
-        ViewCourseProfessorJPanel viewcourseprofessorjpanel=new ViewCourseProfessorJPanel(WorkArea,CourseHistory);
+        ViewCourseProfessorJPanel viewcourseprofessorjpanel=new ViewCourseProfessorJPanel(WorkArea,CourseHistory,ProfessorHistory,Professor);
         WorkArea.add("ViewCourseProfessorjpanel",viewcourseprofessorjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
@@ -183,6 +188,10 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
     }//GEN-LAST:event_btnCreateCourseActionPerformed
+
+    private void btnAddExperinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddExperinceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddExperinceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

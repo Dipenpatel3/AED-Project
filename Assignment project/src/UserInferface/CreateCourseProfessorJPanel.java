@@ -7,6 +7,7 @@ package UserInferface;
 import MainModel.Course;
 import MainModel.CourseHistory;
 import MainModel.Professor;
+import MainModel.ProfessorHistory;
 import MainModel.StudentClass;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -27,7 +28,7 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
     private JPanel WorkArea;
     private CourseHistory CourseHistory;
     private Professor Professor;
-    
+    private ProfessorHistory ProfessorHistory;
     CreateCourseProfessorJPanel(JPanel WorkArea, CourseHistory CourseHistory,Professor Professor) {
         initComponents();
         this.WorkArea=WorkArea;
@@ -198,7 +199,8 @@ public class CreateCourseProfessorJPanel extends javax.swing.JPanel {
         course.setProfessor(FullName);
         
         CourseHistory.createCourse(course);
-       
+        Professor.setFirstName(FullName);
+        
         JOptionPane.showMessageDialog(null, "Course is created!!!");
         
         txtCourseCode.setText(null);

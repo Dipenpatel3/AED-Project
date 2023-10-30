@@ -5,30 +5,32 @@
 package MainModel;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
+import MainModel.CourseHistory;
 /**
  *
  * @author dipenpatel
  */
 public class ProfessorHistory {
     private ArrayList<Professor> ProfessorHistory;
-    
-    //static Map<String,String> hashmap=new HashMap<>();
-//
-//    public static Map<String, String> getHashmap() {
-//        return hashmap;
-//    }
-    
+    private ArrayList<Course> addedCourse;
+
+    public ArrayList<Course> getAddedCourse() {
+        return addedCourse;
+    }
+
+    public void setAddedCourse(ArrayList<Course> addedCourse) {
+        this.addedCourse = addedCourse;
+    }
+   
     public ProfessorHistory(){
         this.ProfessorHistory = new ArrayList<Professor>();
+        this.addedCourse=new ArrayList<Course>();
     }
 
     public ArrayList<Professor> getProfProfileHistory() {
         return ProfessorHistory;
     }
-
+    
     public void setProfProfileHistory(ArrayList<Professor> ProfProfileHistory) {
         this.ProfessorHistory = ProfProfileHistory;
     }
@@ -47,9 +49,11 @@ public class ProfessorHistory {
         }
         return null;
     }
-    public void addcourseProfessor(Course course,String Name){
-        if(Professor.getHashmap().containsKey(Name)) {
-            ProfessorHistory.add(course);
-        }
-        } 
+//       public Professor viewProfessorCourse(String ID){
+//        for(Course course:CourseHistory){
+//            if(Professor.getUserName().equals(UserName)){
+//            }
+//        }
+//        return null;
+//    }
 }

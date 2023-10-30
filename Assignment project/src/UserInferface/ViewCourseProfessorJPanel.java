@@ -6,13 +6,14 @@ package UserInferface;
 
 import MainModel.Course;
 import MainModel.CourseHistory;
+import MainModel.Professor;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-
+import MainModel.ProfessorHistory;
 /**
  *
  * @author dipenpatel
@@ -27,12 +28,14 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
 //    }
     private JPanel WorkArea;
     private CourseHistory CourseHistory;
-    
-    ViewCourseProfessorJPanel(JPanel WorkArea, CourseHistory CourseHistory) {
+    private ProfessorHistory ProfessorHistory; 
+    private Professor Professor;      
+    ViewCourseProfessorJPanel(JPanel WorkArea, CourseHistory CourseHistory,ProfessorHistory ProfessorHistory,Professor Professor) {
        initComponents();
        this.WorkArea=WorkArea;
        this.CourseHistory=CourseHistory;
-       
+       this.ProfessorHistory=ProfessorHistory;
+       this.Professor=Professor;
 //       populateTable();
 
     }
@@ -154,16 +157,25 @@ public class ViewCourseProfessorJPanel extends javax.swing.JPanel {
  
         for(Course course: CourseHistory.getCourseHistory()){
             String fullname=course.getProfessor();
+            
             System.out.println("This is my name");
             System.out.println(fullname);
             
             Course result=CourseHistory.searchCourse(term,fullname);
+            String checkUsername=Professor.getFirstName();
+            System.out.println(checkUsername);
+            //Professor professorname=ProfessorHistory.viewProfessorCourse(fullname, course);
             //System.out.println(result.getTerm());
             if(result==null){
             JOptionPane.showMessageDialog(null, "Term doesn't exist!!");
             }
             else{
-            populateTable();   
+                if(checkUsername.equals(fullname)){
+                    populateTable();  
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Course doesn't exist!!");
+                }
             }
         }        
     }//GEN-LAST:event_btnSearchActionPerformed

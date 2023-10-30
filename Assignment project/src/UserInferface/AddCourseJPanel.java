@@ -6,6 +6,8 @@ package UserInferface;
 
 import MainModel.Course;
 import MainModel.CourseHistory;
+import MainModel.StudentClass;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel; 
 import javax.swing.RowFilter;
@@ -27,12 +29,13 @@ public class AddCourseJPanel extends javax.swing.JPanel {
 //    }
     private JPanel WorkArea;
     private CourseHistory courseHistory;
+    private StudentClass StudentClass;
     
-    
-    AddCourseJPanel(JPanel WorkArea, CourseHistory courseHistory) {
+    AddCourseJPanel(JPanel WorkArea, CourseHistory courseHistory,StudentClass StudentClass) {
        initComponents();
        this.WorkArea=WorkArea;
        this.courseHistory=courseHistory;
+       this.StudentClass=StudentClass;
        
 //       tableModel = (DefaultTableModel) jTable1.getModel();
        //populateTable();
@@ -60,6 +63,7 @@ public class AddCourseJPanel extends javax.swing.JPanel {
         txtSearch = new javax.swing.JTextField();
         btnViewCourse = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
+        btnaddCourse = new javax.swing.JButton();
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add course ");
@@ -89,11 +93,6 @@ public class AddCourseJPanel extends javax.swing.JPanel {
         }
 
         btnBack.setText("<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         btnSearch.setText("Search ");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -110,9 +109,11 @@ public class AddCourseJPanel extends javax.swing.JPanel {
         });
 
         btnReset.setText("Reset");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
+
+        btnaddCourse.setText("Add course ");
+        btnaddCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
+                btnaddCourseActionPerformed(evt);
             }
         });
 
@@ -122,8 +123,9 @@ public class AddCourseJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
+                .addGap(197, 197, 197)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnaddCourse)
                     .addComponent(btnReset)
                     .addComponent(btnViewCourse)
                     .addComponent(btnBack)
@@ -147,9 +149,11 @@ public class AddCourseJPanel extends javax.swing.JPanel {
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnViewCourse)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnReset)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnaddCourse)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(45, 45, 45))
         );
@@ -185,15 +189,30 @@ public class AddCourseJPanel extends javax.swing.JPanel {
 
     private void btnViewCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseActionPerformed
         // TODO add your handling code here:
+        ViewaddcourseStudentJPanel viewadcoursestudentjpanel=new ViewaddcourseStudentJPanel(WorkArea,StudentClass);
+        WorkArea.add("ViewaddcourseStudentJPanel",viewadcoursestudentjpanel);
+        CardLayout layout=(CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
+        System.out.println(StudentClass.getAddcourses());
     }//GEN-LAST:event_btnViewCourseActionPerformed
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+    private void btnaddCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddCourseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnResetActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
+        int SelectRow=jTable1.getSelectedRow();
+        if(SelectRow<0){
+            JOptionPane.showMessageDialog(null,"Please select the Row from the table");
+        }
+        else{
+            for(int col=0;col<jTable1.getColumnCount();col++){
+                Object cellvalue=jTable1.getValueAt(SelectRow, col);
+                //StudentClass studentClass=new StudentClass();
+                StudentClass.addcourse((String) cellvalue);
+            }
+//            String courseName=(String)jTable1.getValueAt(SelectRow,0);
+//            System.out.println(courseName);
+            
+        }
+    }//GEN-LAST:event_btnaddCourseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -201,6 +220,7 @@ public class AddCourseJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnViewCourse;
+    private javax.swing.JButton btnaddCourse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
