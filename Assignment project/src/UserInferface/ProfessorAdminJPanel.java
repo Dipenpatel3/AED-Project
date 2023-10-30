@@ -4,8 +4,13 @@
  */
 package UserInferface;
 
+import MainModel.Professor;
 import MainModel.ProfessorHistory;
+import MainModel.StudentClass;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,10 +26,15 @@ public class ProfessorAdminJPanel extends javax.swing.JPanel {
 //    }
     private JPanel WorkArea;
     private ProfessorHistory ProfessorHistory;
-    ProfessorAdminJPanel(JPanel WorkArea, ProfessorHistory ProfessorHistory) {
+    private Professor Professor;
+    
+    ProfessorAdminJPanel(JPanel WorkArea, ProfessorHistory ProfessorHistory,Professor Professor) {
         initComponents();
         this.WorkArea=WorkArea;
-        this.ProfessorHistory=ProfessorHistory;    
+        this.ProfessorHistory=ProfessorHistory;
+        this.Professor=Professor;
+        
+        populateTable();
     }
 
     /**
@@ -39,19 +49,21 @@ public class ProfessorAdminJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnViewDetails = new javax.swing.JButton();
+        btnDeleteDetails = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(186, 79, 84));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Professor Details");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "First Name", "Last Name", "Contact Details", "Title 4"
+                "First Name", "Last Name", "EmailID", "Position"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -70,16 +82,51 @@ public class ProfessorAdminJPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        btnViewDetails.setText("View Detials");
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDetailsActionPerformed(evt);
+            }
+        });
+
+        btnDeleteDetails.setText("Delete Details");
+        btnDeleteDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteDetailsActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(341, 341, 341)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnDeleteDetails)
+                                    .addComponent(btnViewDetails))))))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDeleteDetails, btnViewDetails});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -87,14 +134,77 @@ public class ProfessorAdminJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnViewDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDeleteDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(62, 62, 62))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+        // TODO add your handling code here:
+        int SelectRow=jTable1.getSelectedRow();
+        if(SelectRow<0){
+            JOptionPane.showMessageDialog(null, "Please Select the Row","Warring",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Professor Professor=(Professor) jTable1.getValueAt(SelectRow, 0);
+            
+            adminProfessorViewDetailsJPanel adminprofessor=new adminProfessorViewDetailsJPanel(WorkArea,ProfessorHistory,Professor);
+            WorkArea.add("adminProfessorViewDetailsJPanel",adminprofessor);
+            CardLayout layout=(CardLayout) WorkArea.getLayout();
+            layout.next(WorkArea);
+        }
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout=(CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDeleteDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDetailsActionPerformed
+        // TODO add your handling code here:
+        int SelectRow=jTable1.getSelectedRow();
+        if(SelectRow>=0){
+            int dialogButton=JOptionPane.YES_NO_OPTION;
+            int dialogResult=JOptionPane.showConfirmDialog(null,"Would you like to delete this detials","Warring",dialogButton);
+            if(dialogResult==JOptionPane.YES_OPTION){
+                Professor Professor=(Professor) jTable1.getValueAt(SelectRow,0);
+                ProfessorHistory.deleteProfessor(Professor);
+                populateTable();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please Select the Row","Warring",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteDetailsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDeleteDetails;
+    private javax.swing.JButton btnViewDetails;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+     DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
+     dtm.setNumRows(0);
+     for(Professor Professor:ProfessorHistory.getProfProfileHistory()){
+         Object[] row=new Object[4];
+         row[0]=Professor;
+         row[1]=Professor.getLastName();
+         row[2]=Professor.getEmail();
+         row[3]=Professor.getPosition();
+         dtm.addRow(row);
+     }
+    }
 }
+

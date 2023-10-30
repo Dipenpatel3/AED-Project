@@ -65,6 +65,8 @@ public class AddCourseJPanel extends javax.swing.JPanel {
         btnReset = new javax.swing.JButton();
         btnaddCourse = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(186, 79, 84));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add course ");
 
@@ -93,6 +95,11 @@ public class AddCourseJPanel extends javax.swing.JPanel {
         }
 
         btnBack.setText("<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnSearch.setText("Search ");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +116,11 @@ public class AddCourseJPanel extends javax.swing.JPanel {
         });
 
         btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         btnaddCourse.setText("Add course ");
         btnaddCourse.addActionListener(new java.awt.event.ActionListener() {
@@ -213,6 +225,22 @@ public class AddCourseJPanel extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_btnaddCourseActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        txtSearch.setText(""); // Clear the search input
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(dtm);
+        jTable1.setRowSorter(sorter);
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        WorkArea.remove(this);
+        CardLayout layout=(CardLayout) WorkArea.getLayout();
+        layout.previous(WorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

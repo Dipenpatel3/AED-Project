@@ -40,6 +40,9 @@ public class ProfessorHistory {
         ProfessorHistory.add(professor);
         return professor;
     }
+    public void deleteProfessor(Professor Professor){
+        ProfessorHistory.remove(Professor);
+    }
     
     public Professor searchUserNameAndPassword(String userName, String password) {
         for (Professor p : ProfessorHistory) {

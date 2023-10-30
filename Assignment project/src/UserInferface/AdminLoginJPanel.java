@@ -4,6 +4,7 @@
  */
 package UserInferface;
 
+import MainModel.Professor;
 import MainModel.ProfessorHistory;
 import MainModel.StudentClass;
 import MainModel.StudentDirectory;
@@ -26,12 +27,13 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
     private StudentDirectory StudentDirectory;
     private StudentClass StudentClass;
     private ProfessorHistory ProfessorHistory;
-    
-    AdminLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory,ProfessorHistory ProfessorHistory) {
+    private Professor Professor;
+    AdminLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory,ProfessorHistory ProfessorHistory,Professor Professor) {
      initComponents();
      this.WorkArea=WorkArea;
      this.StudentDirectory=StudentDirectory;
-     this.ProfessorHistory=ProfessorHistory;     
+     this.ProfessorHistory=ProfessorHistory;   
+     this.Professor=Professor;
     }
 
     /**
@@ -135,7 +137,7 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
 
     private void btnProfessorDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfessorDetailsActionPerformed
         // TODO add your handling code here:
-        ProfessorAdminJPanel professoradminjpanel=new ProfessorAdminJPanel(WorkArea,ProfessorHistory);
+        ProfessorAdminJPanel professoradminjpanel=new ProfessorAdminJPanel(WorkArea,ProfessorHistory,Professor);
         WorkArea.add("ProfessorAdminJPanel",professoradminjpanel);
         CardLayout layout=(CardLayout)WorkArea.getLayout();
         layout.next(WorkArea);

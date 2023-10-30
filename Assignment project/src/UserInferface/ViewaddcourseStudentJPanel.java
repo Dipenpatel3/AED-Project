@@ -41,6 +41,8 @@ public class ViewaddcourseStudentJPanel extends javax.swing.JPanel {
 
         txtTerm = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(186, 79, 84));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(

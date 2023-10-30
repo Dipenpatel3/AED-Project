@@ -161,7 +161,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginActionPerformed
         // TODO add your handling code here:
-        AdminJPanel adminjpanel=new AdminJPanel(WorkArea,StudentDirectory,ProfessorHistory);
+        AdminJPanel adminjpanel=new AdminJPanel(WorkArea,StudentDirectory,ProfessorHistory,Professor);
         WorkArea.add("AdminJPanel",adminjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
@@ -177,7 +177,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnDepartmentLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepartmentLoginActionPerformed
         // TODO add your handling code here:
-        DepartmentJPanel departmentjpanel=new DepartmentJPanel(WorkArea);
+        DepartmentJPanel departmentjpanel=new DepartmentJPanel(WorkArea,StudentDirectory);
         WorkArea.add("DepartmentJPanel",departmentjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);

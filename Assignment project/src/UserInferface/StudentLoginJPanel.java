@@ -173,10 +173,16 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
     private void btnTranscriptsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranscriptsActionPerformed
         // TODO add your handling code here:
-        StudentTranscriptviewJPanel studenttrancsriptviewjpanel=new StudentTranscriptviewJPanel(WorkArea);
+        if(Studentclass.getCheckTran123s()==1){
+            JOptionPane.showMessageDialog(null, "Congrats! Transcript is genreated and read for download");
+            StudentTranscriptviewJPanel studenttrancsriptviewjpanel=new StudentTranscriptviewJPanel(WorkArea);
         WorkArea.add("StudentTranscriptviewJPanel",studenttrancsriptviewjpanel);
         CardLayout layout=(CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Transcript is not yet generated");
+        }
     }//GEN-LAST:event_btnTranscriptsActionPerformed
 
     private void btnAddCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCourseActionPerformed
@@ -189,7 +195,10 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
     private void btnViewCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCourseActionPerformed
         // TODO add your handling code here:
-        
+       ViewAddedCourseStudentJPanel viewaddedcoursestudentJPanel= new ViewAddedCourseStudentJPanel(WorkArea,Studentclass,StudentDirectory);
+       WorkArea.add("ViewCourseJPanel",viewaddedcoursestudentJPanel);
+       CardLayout layout=(CardLayout) WorkArea.getLayout();
+       layout.next(WorkArea); 
     }//GEN-LAST:event_btnViewCourseActionPerformed
 
 

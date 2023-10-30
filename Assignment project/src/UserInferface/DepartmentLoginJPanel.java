@@ -4,9 +4,12 @@
  */
 package UserInferface;
 
+import MainModel.StudentClass;
+import MainModel.StudentDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author dhrruv
@@ -20,9 +23,13 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
 //        initComponents();
 //    }
     private JPanel WorkArea;
-    DepartmentLoginJPanel(JPanel WorkArea) {
+    private StudentDirectory StudentDirectory;
+    
+    DepartmentLoginJPanel(JPanel WorkArea,StudentDirectory StudentDirectory) {
      initComponents();
      this.WorkArea=WorkArea;
+     this.StudentDirectory=StudentDirectory;
+     populateTable();
     }
 
     /**
@@ -37,7 +44,7 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jDepartmentDetails = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         btnGenerateTranscipt = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(186, 79, 84));
@@ -52,7 +59,7 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Department Login");
 
-        jDepartmentDetails.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -68,15 +75,20 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jDepartmentDetails);
-        if (jDepartmentDetails.getColumnModel().getColumnCount() > 0) {
-            jDepartmentDetails.getColumnModel().getColumn(0).setResizable(false);
-            jDepartmentDetails.getColumnModel().getColumn(1).setResizable(false);
-            jDepartmentDetails.getColumnModel().getColumn(2).setResizable(false);
-            jDepartmentDetails.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
         btnGenerateTranscipt.setText("Generate Transcript ");
+        btnGenerateTranscipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateTransciptActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -124,12 +136,74 @@ public class DepartmentLoginJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnGenerateTransciptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateTransciptActionPerformed
+        // TODO add your handling code here:
+        int selectrow=jTable1.getSelectedRow();
+        if(selectrow<0){
+            JOptionPane.showMessageDialog(null,"Please Select the Studen for Transcript generate");
+        }
+        else{
+            //StudentClass StudentClass=(StudentClass) jTable1.getValueAt(selectrow, 0);
+            JOptionPane.showMessageDialog(null,"Transcript is generated");
+            //populateUpdateTable();
+        }
+    }//GEN-LAST:event_btnGenerateTransciptActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerateTranscipt;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JTable jDepartmentDetails;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+      
+          DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
+          dtm.setRowCount(0);
+          for(StudentClass StudentClass:StudentDirectory.getStudentList())
+          {
+              if(StudentClass.getGenerateTrans()==1){
+                  String generateTrans="No";
+                  int CheckTrans=1;
+                  StudentClass.setCheckTran123s(CheckTrans);
+                  StudentClass.setCheckTrans(generateTrans);
+                  Object[] row=new Object[5];
+                  row[0]=StudentClass.getFirstName();
+                  row[1]=StudentClass.getLastName();
+                  row[2]=StudentClass.getNEUID();
+                  row[3]=generateTrans;
+                  dtm.addRow(row);
+              }
+              else{
+                  dtm.setRowCount(0);
+              }
+              
+        }
+      
 }
+
+//    private void populateUpdateTable() {
+//       DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
+//          dtm.setRowCount(0);
+//          for(StudentClass StudentClass:StudentDirectory.getStudentList())
+//          {
+//              if(StudentClass.getGenerateTrans()==1){
+//                  String generateTrans="Yes";
+//                  int CheckTrans=1;
+//                  StudentClass.setCheckTran123s(CheckTrans);
+//                  StudentClass.setCheckTrans(generateTrans);
+//                  Object[] row=new Object[5];
+//              row[0]=StudentClass.getFirstName();
+//              row[1]=StudentClass.getLastName();
+//              row[2]=StudentClass.getNEUID();
+//              row[3]=generateTrans;
+//              dtm.addRow(row);
+//              }
+//              else{
+//                  dtm.setRowCount(0);
+//              }
+              
+    }
+

@@ -18,6 +18,35 @@ public class StudentClass {
     private String Password;
     private String NEUID;
     private String EmailId;
+    private int generateTrans;
+    private String CheckTrans;
+    private int checkTran123s;
+
+    public int getCheckTran123s() {
+        return checkTran123s;
+    }
+
+    public void setCheckTran123s(int checkTran123s) {
+        this.checkTran123s = checkTran123s;
+    }
+    
+    public String getCheckTrans() {
+        return CheckTrans;
+    }
+
+    public void setCheckTrans(String CheckTrans) {
+        this.CheckTrans = CheckTrans;
+    }
+    
+    public int getGenerateTrans() {
+        return generateTrans;
+    }
+
+    public void setGenerateTrans(int generateTrans) {
+        this.generateTrans = generateTrans;
+    }
+
+
     
     private ArrayList<String> addcourses;
     

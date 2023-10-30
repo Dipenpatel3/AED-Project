@@ -4,6 +4,8 @@
  */
 package UserInferface;
 
+import MainModel.StudentClass;
+import MainModel.StudentDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,9 +23,12 @@ public class DepartmentJPanel extends javax.swing.JPanel {
 //    public DepartmentJPanel() {
 //        initComponents();
 //    }
-    DepartmentJPanel(JPanel WorkArea) {
+    private StudentDirectory StudentDirectory;
+    
+    DepartmentJPanel(JPanel WorkArea,StudentDirectory StudentDirectory) {
         initComponents();
         this.WorkArea=WorkArea;
+        this.StudentDirectory=StudentDirectory;
     }
 
     /**
@@ -161,7 +166,7 @@ public class DepartmentJPanel extends javax.swing.JPanel {
         else{
         if(txtUsername.getText().equals("department")){
             if(jPasswordField1.getText().equals("1234")){
-                    DepartmentLoginJPanel departmentloginjpanel=new DepartmentLoginJPanel(WorkArea);
+                    DepartmentLoginJPanel departmentloginjpanel=new DepartmentLoginJPanel(WorkArea,StudentDirectory);
                     WorkArea.add("DepartmentLoginJPanel",departmentloginjpanel);
                     CardLayout layout=(CardLayout) WorkArea.getLayout();
                     layout.next(WorkArea);

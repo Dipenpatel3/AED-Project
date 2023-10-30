@@ -43,7 +43,14 @@ public class StudentDirectory {
         }
         return null;
     }
-    
+    public StudentClass generateTrans(String UserID,int Trans){
+        for(StudentClass StudentClass:StudentDirectory){
+            if(StudentClass.getUserID().equals(UserID) && StudentClass.getGenerateTrans()==Trans){
+                return StudentClass;
+            }
+        }
+        return null;
+    }
 //    public Course addCourse(Course Course,String UserName){
 //        StudentDirectory.add(Course);
 //        return Course;
